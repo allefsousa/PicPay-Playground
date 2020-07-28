@@ -1,6 +1,6 @@
 package com.developer.allef.picpay.service
 
-import com.developer.allef.picpay.data.Contact
+import com.developer.allef.picpay.data.ContactDTO
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -10,5 +10,5 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("users")
-    fun getContacts(): Call<List<Contact>>
+    fun getContacts(): Call<List<ContactDTO>>
 }
