@@ -4,8 +4,17 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:windowBackground">@color/backgroundScreen</item>
+        <item name="android:statusBarColor">@color/backgroundScreen</item>
+
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSurface">#FFFFFF</item>
+
+    </style>
+    <style name="Theme.MaterialComponents.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/backgroundScreen</item>
 
     </style>
 
