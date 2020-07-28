@@ -12,15 +12,22 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        def URL_DEVELOP = "\"http://careers.picpay.com/tests/mobdev/\""
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", URL_DEVELOP
+
+        }
+        debug{
+            buildConfigField "String", "BASE_URL", URL_DEVELOP
+
         }
     }
 }
