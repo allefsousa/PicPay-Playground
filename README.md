@@ -1,1 +1,1 @@
-# PicPay Playground
+# PicPay Mobile Playground
