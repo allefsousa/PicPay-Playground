@@ -5,6 +5,8 @@ import com.developer.allef.picpay.di.factory.OkHttpFactory
 import com.developer.allef.picpay.di.factory.OkHttpLoggingFactory
 import com.developer.allef.picpay.di.factory.RetrofitFactory
 import com.developer.allef.picpay.service.ApiService
+import com.developer.allef.picpay.ui.contact.ContactViewModel
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -27,5 +29,5 @@ val repositoryModule = module {
 }
 
 val viewModelModule = module {
-
+    viewModel { ContactViewModel(get()) }
 }
