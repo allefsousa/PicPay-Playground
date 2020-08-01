@@ -4,8 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.developer.allef.picpay.data.Contact
+import com.developer.allef.picpay.data.model.Contact
 import com.developer.allef.picpay.databinding.ItemContactBinding
+import com.developer.allef.picpay.extensions.loadImgCircle
 
 /**
  * @author allef.santos on 31/07/20
@@ -13,10 +14,7 @@ import com.developer.allef.picpay.databinding.ItemContactBinding
 class ContactAdapter(private val itemClick: (Contact) -> Unit) :
     RecyclerView.Adapter<ContactAdapter.ContactAdapterViewHolder>() {
     private lateinit var context: Context
-    private val listContact = mutableListOf<Contact>()
-
-
-
+    private var listContact = mutableListOf<Contact>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -59,6 +57,7 @@ class ContactAdapter(private val itemClick: (Contact) -> Unit) :
 
             itemBinding.tvNameContact.text = contact.name
             itemBinding.tvIdContact.text = contact.username
+            itemBinding.ivContact.loadImgCircle(contact.img)
         }
     }
 

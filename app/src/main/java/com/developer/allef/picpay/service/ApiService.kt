@@ -1,6 +1,6 @@
 package com.developer.allef.picpay.service
 
-import com.developer.allef.picpay.data.ContactDTO
+import com.developer.allef.picpay.data.dto.ContactDTO
 import retrofit2.Call
 import retrofit2.http.GET
 

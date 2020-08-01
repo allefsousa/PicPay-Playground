@@ -1,6 +1,7 @@
-package com.developer.allef.picpay.data
+package com.developer.allef.picpay.data.dto
 
 import android.os.Parcelable
+import com.developer.allef.picpay.data.model.Contact
 import kotlinx.android.parcel.Parcelize
 
 /**
@@ -22,7 +23,7 @@ internal fun <E> List<E>.toMapperListItem(): List<Contact> {
     return listItem
 }
 
-internal fun ContactDTO.toContact() :Contact{
+internal fun ContactDTO.toContact() : Contact {
     return (Contact(
         id, name, img, username
     ))
