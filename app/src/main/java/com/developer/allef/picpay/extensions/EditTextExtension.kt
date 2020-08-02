@@ -9,11 +9,7 @@ import android.widget.EditText
  * @author allef.santos on 02/08/20
  */
 
-/*
- * As duas funções extendidas abaixo são para a avaliação
- * de conteúdo em EditText logo após o fornecimento de um
- * novo caractere.
- * */
+
 private fun EditText.afterTextChanged( invokeValidation: (String) -> Unit ){
 
     this.addTextChangedListener( object: TextWatcher {

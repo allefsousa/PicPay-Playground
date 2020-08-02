@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MaterialComponents.NoActionBar">
-        <activity android:name=".ui.credcard.addnewcard.AddNewCardActivity"/>
+        <activity android:name=".ui.credcard.addnewcard.AddNewCardActivity"
+            android:windowSoftInputMode="adjustResize|stateAlwaysVisible"/>
         <activity
             android:name=".ui.credcard.CredCardActivity" />
         <activity

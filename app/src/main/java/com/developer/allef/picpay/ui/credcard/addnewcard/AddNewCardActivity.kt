@@ -1,38 +1,72 @@
 package com.developer.allef.picpay.ui.credcard.addnewcard
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import androidx.core.widget.addTextChangedListener
+import android.view.ViewTreeObserver
+import androidx.appcompat.app.AppCompatActivity
 import com.developer.allef.picpay.databinding.ActivityAddNewCardBinding
-import com.developer.allef.picpay.databinding.ActivityCredCardBinding
+import com.developer.allef.picpay.util.addMask
+import org.koin.android.ext.android.inject
 
 class AddNewCardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddNewCardBinding
+    private val viewModel: AddNewCardViewModel by inject()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddNewCardBinding.inflate(layoutInflater)
+        loadDataBinding()
         setContentView(binding.root)
 
-        binding.toolbar.componentToolbar.setNavigationOnClickListener {
+        loadActions()
+
+        loadComponents()
+    }
+
+    private fun loadDataBinding() {
+        binding = ActivityAddNewCardBinding.inflate(layoutInflater)
+        binding.viewmodel = viewModel
+        binding.lifecycleOwner = this
+        this.lifecycle.addObserver(viewModel)
+    }
+
+    private fun loadComponents() {
+        binding.edCredNumber.addMask("#### #### #### ####")
+        binding.edVenc.addMask("##/####")
+    }
+
+    private fun loadActions() {
+        binding.newtoolbar.toolbars.setNavigationOnClickListener {
             finish()
         }
-        binding.edCredNumber.addTextChangedListener(object :TextWatcher{
-            override fun afterTextChanged(s: Editable?) {
-
+        binding.edCvv.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                updateUI()
             }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
+        }
+        binding.edName.setOnFocusChangeListener { v, hasFocus ->
+            if (hasFocus) {
+                updateUI()
             }
+        }
+    }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-        })
+    private fun updateUI() {
+        binding.containerScroll.viewTreeObserver
+            .addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+                override fun onGlobalLayout() {
+                    val scrollViewHeight = binding.containerScroll.height
+                    if (scrollViewHeight > 0) {
+                        binding.containerScroll.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                        val lastView =
+                            binding.containerScroll.getChildAt(binding.containerScroll.childCount - 1)
+                        val lastViewBottom = lastView.bottom + binding.containerScroll.paddingBottom
+                        val deltaScrollY =
+                            lastViewBottom - scrollViewHeight - binding.containerScroll.scrollY
+                        binding.containerScroll.smoothScrollBy(0, deltaScrollY)
+                        binding.containerScroll.scrollBy(0, deltaScrollY)
+                    }
+                }
+            })
     }
 }
