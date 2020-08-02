@@ -13,5 +13,9 @@ class AddNewCardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAddNewCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.toolbar.componentToolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }

@@ -18,9 +18,7 @@
             layout="@layout/toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -117,8 +115,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
-                android:inputType="textPersonName"
+                android:inputType="date"
                 android:maxLines="1"
+                android:maxLength="6"
                 android:paddingStart="0dp"
                 android:paddingEnd="0dp"
                 android:textColor="@android:color/white"
@@ -143,9 +142,10 @@
                 style="@style/textInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:imeOptions="actionNext"
-                android:inputType="textPersonName"
+                android:imeOptions="actionSend"
+                android:inputType="number"
                 android:maxLines="1"
+                android:maxLength="4"
                 android:paddingStart="0dp"
                 android:paddingEnd="0dp"
                 android:textColor="@android:color/white"
