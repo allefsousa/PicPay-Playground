@@ -1,9 +1,13 @@
 package com.developer.allef.picpay.ui.credcard.addnewcard
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.ViewTreeObserver
 import androidx.appcompat.app.AppCompatActivity
+import com.developer.allef.picpay.data.model.Contact
 import com.developer.allef.picpay.databinding.ActivityAddNewCardBinding
+import com.developer.allef.picpay.extensions.hideKeyboard
+import com.developer.allef.picpay.ui.payment.PaymentActivity
 import com.developer.allef.picpay.util.addMask
 import org.koin.android.ext.android.inject
 
@@ -47,6 +51,17 @@ class AddNewCardActivity : AppCompatActivity() {
         binding.edName.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus) {
                 updateUI()
+            }
+        }
+
+        binding.btnPrimary.setOnClickListener {
+            hideKeyboard()
+            if (viewModel.saveCredCard()){
+                val intent = Intent(this, PaymentActivity::class.java)
+                val contact = intent.getParcelableExtra<Contact>("contact")
+                intent.putExtra("contact", contact)
+                startActivity(intent)
+                finish()
             }
         }
     }

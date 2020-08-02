@@ -6,8 +6,8 @@ package com.developer.allef.picpay.data.model
 data class CredCard(
     val cardNumber: String,
     val name: String,
-    val cvv: Int,
-    val value: Double,
-    val expiryDate: String,
-    val destinationUserId: Int
+    val cvv: String
+//    val value: Double,
+//    val expiryDate: String,
+//    val destinationUserId: Int
 )
