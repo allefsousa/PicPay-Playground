@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PicPay</string>
+    <string name="credit_card_text">Para fazer pagamentos para outras\npessoas você precisa cadastrar um\ncartão de crédito pessoal.</string>
+    <string name="add_credit_card">Cadastre um cartão de crédito</string>
+    <string name="add_card_btn">Cadastrar cartão</string>
+    <string name="image_card_content_descrip">image card</string>
 </resources>

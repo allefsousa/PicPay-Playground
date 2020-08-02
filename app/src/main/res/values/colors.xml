@@ -7,4 +7,5 @@
 
     <color name="disableForm">#8F929D</color>
     <color name="enableForm">#11C76F</color>
+    <color name="white">#FFFFFF</color>
 </resources>
