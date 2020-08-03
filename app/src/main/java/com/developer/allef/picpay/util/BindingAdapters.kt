@@ -7,6 +7,9 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.developer.allef.picpay.R
 import com.developer.allef.picpay.extensions.loadImgCircle
 
@@ -30,7 +33,11 @@ class BindingAdapters {
         @BindingAdapter("imageCircleUrl")
         @JvmStatic
         fun setImage(img: ImageView, url: String) {
-            img.loadImgCircle(url)
+            Glide.with(img)
+                .applyDefaultRequestOptions(RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL))
+                .applyDefaultRequestOptions(RequestOptions().circleCrop())
+                .load(url)
+                .into(img)
         }
 
         @BindingAdapter("maskField")
@@ -52,11 +59,7 @@ class BindingAdapters {
         @BindingAdapter("backgroundButtonController")
         @JvmStatic
         fun setBackgroundButton(button: Button, flag: Boolean) {
-            if (flag){
-//                button.background = ContextCompat.getDrawable(button.context,R.drawable.back_button_add_card)
-            }else{
-//                button.background = ContextCompat.getDrawable(button.context,R.drawable.back_button_disable)
-            }
+            button.isEnabled = flag
         }
 
     }

@@ -1,16 +1,14 @@
-package com.developer.allef.picpay.ui.credcard
+package com.developer.allef.picpay.ui.card
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.developer.allef.picpay.R
-import com.developer.allef.picpay.data.local.AppSharedPreferences
-import com.developer.allef.picpay.databinding.ActivityContactBinding
+import android.widget.Toast
+import com.developer.allef.picpay.data.model.Contact
 import com.developer.allef.picpay.databinding.ActivityCredCardBinding
-import com.developer.allef.picpay.ui.credcard.addnewcard.AddNewCardActivity
-import org.koin.android.ext.android.inject
+import com.developer.allef.picpay.ui.card.newcard.NewCardActivity
 
-class CredCardActivity : AppCompatActivity() {
+class CardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCredCardBinding
 
@@ -19,13 +17,22 @@ class CredCardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCredCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val contact = intent.getParcelableExtra<Contact>("contact")
 
         binding.toolbar.toolbars.setNavigationOnClickListener {
             finish()
         }
 
         binding.btnPriming.btnPrimary.setOnClickListener {
-            startActivity(Intent(this,AddNewCardActivity::class.java))
+           callActivity(contact,NewCardActivity::class.java)
         }
+
+
+    }
+    private fun callActivity(user: Contact, javaCls: Class<*>) {
+        val intent = Intent(this, javaCls)
+        intent.putExtra("contact", user)
+        startActivity(intent)
+        finish()
     }
 }

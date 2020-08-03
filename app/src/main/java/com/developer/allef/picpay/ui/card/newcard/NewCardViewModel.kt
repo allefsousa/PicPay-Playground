@@ -1,16 +1,16 @@
-package com.developer.allef.picpay.ui.credcard.addnewcard
+package com.developer.allef.picpay.ui.card.newcard
 
 import android.text.Editable
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.developer.allef.picpay.data.model.CredCard
-import com.developer.allef.picpay.data.repository.addnewcard.AddNewCardInterface
+import com.developer.allef.picpay.data.repository.card.NewCardRepository
 
 /**
  * @author allef.santos on 02/08/20
  */
-class AddNewCardViewModel(private val addnewContactRepository: AddNewCardInterface) :ViewModel(),LifecycleObserver {
+class NewCardViewModel(private val newContactRepository: NewCardRepository) :ViewModel(),LifecycleObserver {
 
     val credCardNumber = MutableLiveData<String>()
     val name = MutableLiveData<String>()
@@ -24,12 +24,11 @@ class AddNewCardViewModel(private val addnewContactRepository: AddNewCardInterfa
 
 
     fun onAfterTextChange(s: Editable) {
-        buttonVisible.value =
-            (!credCardNumber.value.toString().isBlank() && !name.value.toString().isBlank() && !date.value.toString().isBlank() && !cvv.value.toString().isBlank())
+        buttonVisible.value = (credCardNumber.value.toString().isNotEmpty() && name.value.toString().isNotEmpty() && date.value.toString().isNotEmpty() && cvv.value.toString().isNotEmpty())
     }
 
     fun saveCredCard(): Boolean {
-        return addnewContactRepository.saveUserCard(
+        return newContactRepository.saveUserCard(
             CredCard(
                 credCardNumber.value.toString(),
                 name.value.toString(),

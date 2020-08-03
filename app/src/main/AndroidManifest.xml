@@ -14,11 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.payment.PaymentActivity"></activity>
+        <activity android:name=".ui.payment.PaymentActivity"/>
         <activity
-            android:name=".ui.credcard.addnewcard.AddNewCardActivity"
+            android:name=".ui.card.newcard.NewCardActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysVisible" />
-        <activity android:name=".ui.credcard.CredCardActivity" />
+        <activity android:name=".ui.card.CardActivity" />
         <activity android:name=".ui.contact.ContactActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -8,6 +8,7 @@
         <item name="android:statusBarColor">@color/backgroundScreen</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorSurface">#FFFFFF</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
 
     </style>
 
@@ -16,6 +17,8 @@
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@color/backgroundScreen</item>
         <item name="colorPrimary">@color/enableForm</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+
     </style>
 
     <style name="buttomBase" parent="Widget.MaterialComponents.Button">
@@ -35,6 +38,29 @@
     <style name="materialButtomPrimary" parent="buttomBase">
         <item name="backgroundTint">@drawable/buttom_primary_selector</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme"
+        parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+    </style>
+
+    <style name="AppModalStyle"
+        parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+        <item name="shapeAppearanceLargeComponent">@style/AppModalStyle2</item>
+
+    </style>
+    <style name="AppModalStyle2" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+    <style name="CustomShapeAppearanceBottomSheetDialog" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
     </style>
 
 

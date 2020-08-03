@@ -7,7 +7,4 @@ data class CredCard(
     val cardNumber: String,
     val name: String,
     val cvv: String
-//    val value: Double,
-//    val expiryDate: String,
-//    val destinationUserId: Int
 )

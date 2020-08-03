@@ -6,7 +6,8 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.developer.allef.picpay.data.model.Contact
 import com.developer.allef.picpay.databinding.ActivityContactBinding
-import com.developer.allef.picpay.ui.credcard.CredCardActivity
+import com.developer.allef.picpay.ui.card.CardActivity
+import com.developer.allef.picpay.ui.payment.PaymentActivity
 import org.koin.android.ext.android.inject
 
 class ContactActivity : AppCompatActivity() {
@@ -34,7 +35,15 @@ class ContactActivity : AppCompatActivity() {
     }
 
     private fun contactClick(contact: Contact) {
-        callActivity(contact,CredCardActivity::class.java)
+        viewModel.userHasCard.observe(this, Observer {
+            if (it){
+                callActivity(contact,PaymentActivity::class.java)
+
+            }else{
+                callActivity(contact,CardActivity::class.java)
+
+            }
+        })
     }
 
     private fun callActivity(user: Contact, javaCls: Class<*>) {
