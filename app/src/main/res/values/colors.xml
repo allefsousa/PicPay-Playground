@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="backgroundScreen">#1D1E20</color>
 
-    <color name="disableForm">#8F929D</color>
+    <color name="disableFrom">#8F929D</color>
     <color name="enableForm">#11C76F</color>
+    <color name="white">#FFFFFF</color>
 </resources>

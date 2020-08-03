@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_primary_rounded">100dp</dimen>
+    <dimen name="button_margin_left">12dp</dimen>
+    <dimen name="button_margin_right">12dp</dimen>
+</resources>
